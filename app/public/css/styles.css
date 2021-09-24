@@ -17,7 +17,7 @@
 /* VARIABLES */
 
 :root {
-  --width: 1320px;  
+  --width: 1320px;
   --color-staking: #6495ed;
   --color-staking-dark: #2e73ee;
   --color-staking-light: #80a9f2;
@@ -478,16 +478,29 @@ p.hey {
   margin-top: 8px;
 }
 
+.button.bitbox {
+  position: relative;
+  padding-right: 119px;
+}
+
+.bitbox-logo-container {
+  position: absolute;
+  right: 24px;
+  top: 16px;
+  width: 86px;
+  height: 21px;
+}
+
 .button.trezor {
   position: relative;
   padding-right: 119px;
 }
 
 .trezor-logo-container {
-  position: absolute; 
-  right: 24px; 
-  top: 16px; 
-  width: 79px; 
+  position: absolute;
+  right: 24px;
+  top: 16px;
+  width: 79px;
   height: 22px;
 }
 
@@ -497,8 +510,8 @@ p.hey {
 }
 
 .ledger-logo-container {
-  position: absolute; 
-  right: 24px; 
+  position: absolute;
+  right: 24px;
   top: 19px;
   width: 82px;
   height: 20px;
@@ -731,7 +744,7 @@ p.hey {
 
 .form-message-field {
   margin-top: 16px;
-  height: 24px;  
+  height: 24px;
 }
 
 .form-alert {
@@ -1811,7 +1824,7 @@ li.main-tab input + label.selected:after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 56px 48px;
+  padding: 56px 10px;
 }
 
 .authentication-wallet:first-child::after {
@@ -1842,7 +1855,7 @@ li.main-tab input + label.selected:after {
 
 .authentication-image-container {
   position: relative;
-  padding-bottom: 202px; 
+  padding-bottom: 202px;
   height: 0;
   overflow: hidden;
 }
@@ -2518,7 +2531,7 @@ li.main-tab input + label.selected:after {
 .balance-amount.small svg {
   margin-left: 12px;
   width: 14px;
-} 
+}
 
 
 .balance-amount svg path {
@@ -3285,7 +3298,7 @@ input:checked + .slider:before {
 .delegation-info-row svg {
   margin-left: 8px;
   width: 8px;
-} 
+}
 
 .delegation-info-row svg path {
   fill: var(--color-grey-medium);
