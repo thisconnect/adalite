@@ -598,6 +598,11 @@ bip39@^3.0.2:
     pbkdf2 "^3.0.9"
     randombytes "^2.0.1"
 
+bitbox02-api@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/bitbox02-api/-/bitbox02-api-0.10.0.tgz#79c7c2b85c7c3df1edafee434e99635ac87aaa25"
+  integrity sha512-3iYfdlIfPxYuv52s8N6r1o6gYCYPTlbpvt/yTPz97OBheaswA/ZLRyWWl5//ww7+hT4Wixm5zLqx/JC7sw502A==
+
 blob-util@2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/blob-util/-/blob-util-2.0.2.tgz#3b4e3c281111bb7f11128518006cdc60b403a1eb"
