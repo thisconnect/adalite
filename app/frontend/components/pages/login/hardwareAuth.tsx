@@ -25,6 +25,12 @@ const LoadByHardwareWalletSection = () => {
     setBulkExport(!enableBulkExport)
   }, [enableBulkExport])
 
+  const BitBox02AffiliateLink = (title) => (
+    <a href="https://shiftcrypto.shop/TODO-ADALITE" target="blank">
+      {title}
+    </a>
+  )
+
   const TrezorAffiliateLink = (title) => (
     <a href="https://shop.trezor.io/?offer_id=10&aff_id=1071" target="blank">
       {title}
@@ -40,6 +46,39 @@ const LoadByHardwareWalletSection = () => {
   return (
     <Fragment>
       <div className="authentication-content hardware">
+        <div className="authentication-wallet">
+          <div className="authentication-image-container">
+            <img className="authentication-image" src="assets/bitbox02.svg" alt="BitBox02" />
+          </div>
+          <div className="authentication-paragraph">BitBox02</div>
+          <div className="authentication-paragraph small">
+            {BitBox02AffiliateLink('Support us by buying one')}
+          </div>
+          <div
+            className="authentication-paragraph small"
+            dangerouslySetInnerHTML={{__html: '&nbsp;'}}
+          />
+          <button
+            disabled={!ADALITE_CONFIG.ADALITE_ENABLE_BITBOX02 || isMobileOnly}
+            {...tooltip(
+              'Support for BitBox02 is temporarily disabled',
+              !ADALITE_CONFIG.ADALITE_ENABLE_BITBOX02
+            )}
+            {...tooltip('Not supported on mobile devices', isMobileOnly)}
+            className="button primary bitbox02 thin-data-balloon"
+            onClick={() =>
+              loadWallet({
+                cryptoProviderType: CryptoProviderType.BITBOX02,
+                shouldExportPubKeyBulk: enableBulkExport,
+              })
+            }
+          >
+            Unlock with
+            <div className="trezor-logo-container">
+              <img src="assets/bitbox02.svg" alt="BitBox02" width="40" />
+            </div>
+          </button>
+        </div>
         <div className="authentication-wallet">
           <div className="authentication-image-container">
             <img className="authentication-image" src="assets/trezor.jpg" alt="Trezor model T" />

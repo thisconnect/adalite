@@ -2,7 +2,7 @@
   "name": "cardano",
   "version": "6.7.3",
   "engines": {
-    "node": "14.16"
+    "node": "15"
   },
   "description": "A simple Cardano wallet",
   "main": "app.js",
