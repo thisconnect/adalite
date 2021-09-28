@@ -134,6 +134,7 @@ const ShelleyLedgerCryptoProvider = async ({
   const deriveXpub = CachedDeriveXpubFactory(
     derivationScheme,
     config.shouldExportPubKeyBulk && isFeatureSupported(CryptoProviderFeature.BULK_EXPORT),
+    isFeatureSupported(CryptoProviderFeature.BYRON),
     async (derivationPaths: BIP32Path[]) => {
       const response = await exportPublicKeys(derivationPaths)
       return response.map((res) => Buffer.from(res.publicKeyHex + res.chainCodeHex, 'hex'))
