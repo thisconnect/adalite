@@ -67,6 +67,7 @@ CryptoProviderParams): Promise<CryptoProvider> => {
   const deriveXpub = CachedDeriveXpubFactory(
     derivationScheme,
     config.shouldExportPubKeyBulk,
+    isFeatureSupported(CryptoProviderFeature.BYRON),
     (derivationPaths: BIP32Path[]) => {
       return derivationPaths.map((path) => deriveHdNode(path).extendedPublicKey)
     }

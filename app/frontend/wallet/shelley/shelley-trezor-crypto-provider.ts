@@ -89,6 +89,7 @@ const ShelleyTrezorCryptoProvider = async ({
   const deriveXpub = CachedDeriveXpubFactory(
     derivationScheme,
     config.shouldExportPubKeyBulk,
+    isFeatureSupported(CryptoProviderFeature.BYRON),
     async (absDerivationPaths: BIP32Path[]) => {
       const bundle = absDerivationPaths.map((path: BIP32Path) => ({path, showOnTrezor: false}))
       const response = await TrezorConnect.cardanoGetPublicKey({
