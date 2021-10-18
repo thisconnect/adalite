@@ -478,6 +478,19 @@ p.hey {
   margin-top: 8px;
 }
 
+.button.bitbox {
+  position: relative;
+  padding-right: 119px;
+}
+
+.bitbox-logo-container {
+  position: absolute;
+  right: 24px;
+  top: 16px;
+  width: 86px;
+  height: 21px;
+}
+
 .button.trezor {
   position: relative;
   padding-right: 119px;

@@ -1,6 +1,6 @@
 import {Fragment, h} from 'preact'
 import {CryptoProviderType} from '../../../wallet/types'
-import {TrezorLogoWhite, LedgerLogoWhite} from '../../common/svg'
+import {TrezorLogoWhite, LedgerLogoWhite, BitBoxLogoWhite} from '../../common/svg'
 import {ADALITE_CONFIG} from '../../../config'
 import tooltip from '../../common/tooltip'
 import {useActions} from '../../../helpers/connect'
@@ -48,7 +48,7 @@ const LoadByHardwareWalletSection = () => {
       <div className="authentication-content hardware">
         <div className="authentication-wallet">
           <div className="authentication-image-container">
-            <img className="authentication-image" src="assets/bitbox02.svg" alt="BitBox02" />
+            <img className="authentication-image" src="assets/bitbox02.png" alt="BitBox02" />
           </div>
           <div className="authentication-paragraph">BitBox02</div>
           <div className="authentication-paragraph small">
@@ -65,7 +65,7 @@ const LoadByHardwareWalletSection = () => {
               !ADALITE_CONFIG.ADALITE_ENABLE_BITBOX02
             )}
             {...tooltip('Not supported on mobile devices', isMobileOnly)}
-            className="button primary bitbox02 thin-data-balloon"
+            className="button primary bitbox thin-data-balloon"
             onClick={() =>
               loadWallet({
                 cryptoProviderType: CryptoProviderType.BITBOX02,
@@ -74,8 +74,8 @@ const LoadByHardwareWalletSection = () => {
             }
           >
             Unlock with
-            <div className="trezor-logo-container">
-              <img src="assets/bitbox02.svg" alt="BitBox02" width="40" />
+            <div className="bitbox-logo-container">
+              <BitBoxLogoWhite />
             </div>
           </button>
         </div>
