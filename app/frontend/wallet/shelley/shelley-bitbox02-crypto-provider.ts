@@ -38,9 +38,10 @@ const ShelleyBitBox02CryptoProvider = async ({
     try {
       await bitbox02.connect(
         pairingCode => {
-          /* TODO */
+          config.bitbox02OnPairingCode(pairingCode)
         },
         async () => {
+          config.bitbox02OnPairingCode(null)
         },
         attestationResult => {
           console.info('BitBox02 attestation', attestationResult)
@@ -50,7 +51,7 @@ const ShelleyBitBox02CryptoProvider = async ({
         },
         status => {
           if (status === constants.Status.PairingFailed) {
-            throw new Error('Pairing failed')
+            config.bitbox02OnPairingCode(null)
           }
         }
       )
