@@ -1,4 +1,3 @@
-import {BitBox02API, getDevicePath, constants} from 'bitbox02-api'
 import * as cbor from 'borc'
 import CachedDeriveXpubFactory from '../helpers/CachedDeriveXpubFactory'
 import {ShelleySignedTransactionStructured, cborizeTxWitnesses} from './shelley-transaction'
@@ -28,6 +27,8 @@ const ShelleyBitBox02CryptoProvider = async ({
   network,
   config,
 }: CryptoProviderParams): Promise<CryptoProvider> => {
+  const {BitBox02API, getDevicePath, constants} = await import('bitbox02-api')
+
   let bitbox02
   const withDevice = async (f) => {
     if (bitbox02 !== undefined) {
@@ -37,19 +38,19 @@ const ShelleyBitBox02CryptoProvider = async ({
     bitbox02 = new BitBox02API(devicePath)
     try {
       await bitbox02.connect(
-        pairingCode => {
+        (pairingCode) => {
           config.bitbox02OnPairingCode(pairingCode)
         },
         async () => {
           config.bitbox02OnPairingCode(null)
         },
-        attestationResult => {
+        (attestationResult) => {
           console.info('BitBox02 attestation', attestationResult)
         },
         () => {
           bitbox02 = undefined
         },
-        status => {
+        (status) => {
           if (status === constants.Status.PairingFailed) {
             config.bitbox02OnPairingCode(null)
           }
