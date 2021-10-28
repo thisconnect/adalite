@@ -5,9 +5,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const env = process.env.NODE_ENV
 const isProd = env === 'production'
 
-let entry = [
-  'babel-regenerator-runtime', // babel-regenerator-runtime is required for ledger
-]
+const entry = {
+  bundle: ['babel-regenerator-runtime'], // babel-regenerator-runtime is required for ledger
+  bitbox02: './app/frontend/wallet/shelley/lib/bitbox02-api.js',
+}
+
 if (!isProd) {
   /*
   Till we do not import css from react components, we need to have
@@ -27,28 +29,33 @@ if (!isProd) {
     throw new Error('Webpack: CSS pathnames are outdated!')
   }
 
-  entry = entry.concat(cssPathnames)
-  entry.push('webpack-hot-middleware/client?path=/__webpack_hmr')
+  entry.bundle = entry.bundle.concat(cssPathnames)
+  entry.bundle.push('webpack-hot-middleware/client?path=/__webpack_hmr')
 }
 // This one must be after global css, so that css-modules which are imported from js
 // can override global css
-entry.push('./app/frontend/walletApp.js')
+entry.bundle.push('./app/frontend/walletApp.js')
 
 module.exports = {
   entry,
   output: {
-    filename: 'js/frontend.bundle.js',
+    filename: 'js/[name].js',
+    chunkFilename: 'js/[name].bundle.js',
     libraryTarget: 'var',
     library: 'CardanoFrontend',
     path: `${__dirname}/app/dist`,
     publicPath: '/',
   },
-  optimization: {
-    minimize: false,
-  },
+  // optimization: {
+  //   minimize: false,
+  //   splitChunks: {
+  //     chunks: 'all',
+  //   },
+  // },
   devtool: 'source-map',
   mode: env || 'development',
   externals: {
+    // bitbox02: 'bitbox02-api',
     // to avoid including webpack's 'crypto' if window.crypto is available - reduces bundle size
     crypto: 'crypto',
   },

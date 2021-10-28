@@ -27,7 +27,9 @@ const ShelleyBitBox02CryptoProvider = async ({
   network,
   config,
 }: CryptoProviderParams): Promise<CryptoProvider> => {
-  const {BitBox02API, getDevicePath, constants} = await import('bitbox02-api')
+  const {BitBox02API, getDevicePath, constants} = await import(
+    /* webpackChunkName: "bitbox02" */ './lib/bitbox02-api'
+  )
 
   let bitbox02
   const withDevice = async (f) => {
