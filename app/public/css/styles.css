@@ -1827,7 +1827,7 @@ li.main-tab input + label.selected:after {
   padding: 56px 10px;
 }
 
-.authentication-wallet:first-child::after {
+.authentication-wallet:not(:last-child)::after {
   position: absolute;
   content: '';
   top: 0;
