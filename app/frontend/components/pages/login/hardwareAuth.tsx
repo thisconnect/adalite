@@ -48,39 +48,6 @@ const LoadByHardwareWalletSection = () => {
       <div className="authentication-content hardware">
         <div className="authentication-wallet">
           <div className="authentication-image-container">
-            <img className="authentication-image" src="assets/bitbox02.png" alt="BitBox02" />
-          </div>
-          <div className="authentication-paragraph">BitBox02</div>
-          <div className="authentication-paragraph small">
-            {BitBox02AffiliateLink('Support us by buying one')}
-          </div>
-          <div
-            className="authentication-paragraph small"
-            dangerouslySetInnerHTML={{__html: '&nbsp;'}}
-          />
-          <button
-            disabled={!ADALITE_CONFIG.ADALITE_ENABLE_BITBOX02 || isMobileOnly}
-            {...tooltip(
-              'Support for BitBox02 is temporarily disabled',
-              !ADALITE_CONFIG.ADALITE_ENABLE_BITBOX02
-            )}
-            {...tooltip('Not supported on mobile devices', isMobileOnly)}
-            className="button primary bitbox thin-data-balloon"
-            onClick={() =>
-              loadWallet({
-                cryptoProviderType: CryptoProviderType.BITBOX02,
-                shouldExportPubKeyBulk: enableBulkExport,
-              })
-            }
-          >
-            Unlock with
-            <div className="bitbox-logo-container">
-              <BitBoxLogoWhite />
-            </div>
-          </button>
-        </div>
-        <div className="authentication-wallet">
-          <div className="authentication-image-container">
             <img className="authentication-image" src="assets/trezor.jpg" alt="Trezor model T" />
           </div>
           <div className="authentication-paragraph">Trezor model T</div>
@@ -164,6 +131,39 @@ const LoadByHardwareWalletSection = () => {
               />
             </div>
           </div>
+        </div>
+        <div className="authentication-wallet">
+          <div className="authentication-image-container">
+            <img className="authentication-image" src="assets/bitbox02.png" alt="BitBox02" />
+          </div>
+          <div className="authentication-paragraph">BitBox02</div>
+          <div className="authentication-paragraph small">
+            {BitBox02AffiliateLink('Support us by buying one')}
+          </div>
+          <div
+            className="authentication-paragraph small"
+            dangerouslySetInnerHTML={{__html: '&nbsp;'}}
+          />
+          <button
+            disabled={!ADALITE_CONFIG.ADALITE_ENABLE_BITBOX02 || isMobileOnly}
+            {...tooltip(
+              'Support for BitBox02 is temporarily disabled',
+              !ADALITE_CONFIG.ADALITE_ENABLE_BITBOX02
+            )}
+            {...tooltip('Not supported on mobile devices', isMobileOnly)}
+            className="button primary bitbox thin-data-balloon"
+            onClick={() =>
+              loadWallet({
+                cryptoProviderType: CryptoProviderType.BITBOX02,
+                shouldExportPubKeyBulk: enableBulkExport,
+              })
+            }
+          >
+            Unlock with
+            <div className="bitbox-logo-container">
+              <BitBoxLogoWhite />
+            </div>
+          </button>
         </div>
       </div>
       <div className="authentication-hw-bulk-public-export">
