@@ -65,7 +65,7 @@ const LoadByHardwareWalletSection = () => {
               !ADALITE_CONFIG.ADALITE_ENABLE_TREZOR
             )}
             {...tooltip('Not supported on mobile devices', isMobileOnly)}
-            className="button primary trezor thin-data-balloon"
+            className="button primary thin-data-balloon"
             onClick={() =>
               loadWallet({
                 cryptoProviderType: CryptoProviderType.TREZOR,
@@ -73,7 +73,7 @@ const LoadByHardwareWalletSection = () => {
               })
             }
           >
-            Unlock with
+            <span className="authentication-button-label">Unlock with</span>
             <div className="trezor-logo-container">
               <TrezorLogoWhite />
             </div>
@@ -99,7 +99,7 @@ const LoadByHardwareWalletSection = () => {
                 !ADALITE_CONFIG.ADALITE_ENABLE_LEDGER
               )}
               disabled={!ADALITE_CONFIG.ADALITE_ENABLE_LEDGER}
-              className={`button primary ledger thin-data-balloon ${styles.ledgerButton}`}
+              className={`button primary thin-data-balloon ${styles.ledgerButton}`}
               onClick={() =>
                 loadWallet({
                   cryptoProviderType: CryptoProviderType.LEDGER,
@@ -108,7 +108,7 @@ const LoadByHardwareWalletSection = () => {
                 })
               }
             >
-              Unlock with
+              <span className="authentication-button-label">Unlock with</span>
               <div className="ledger-logo-container">
                 <LedgerLogoWhite />
               </div>
@@ -151,7 +151,7 @@ const LoadByHardwareWalletSection = () => {
               !ADALITE_CONFIG.ADALITE_ENABLE_BITBOX02
             )}
             {...tooltip('Not supported on mobile devices', isMobileOnly)}
-            className="button primary bitbox thin-data-balloon"
+            className="button primary thin-data-balloon"
             onClick={() =>
               loadWallet({
                 cryptoProviderType: CryptoProviderType.BITBOX02,
@@ -159,7 +159,7 @@ const LoadByHardwareWalletSection = () => {
               })
             }
           >
-            Unlock with
+            <span className="authentication-button-label">Unlock with</span>
             <div className="bitbox-logo-container">
               <BitBoxLogoWhite />
             </div>
